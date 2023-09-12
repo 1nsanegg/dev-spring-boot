@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1nsane's company Homepage</title>
+</head>
+<body>
+<h2> 1nsane Company Home Page - GG</h2>
+<hr>
+<p>Welcome to the 1nsane company home page</p>
+<hr>
+<p>
+    User: <span sec:authentication="principal.username"></span>
+</p>
+<hr>
+<p>
+    Role: <span sec:authentication="principal.authorities"></span>
+</p>
+<hr>
+<!-- Add link to leaders-->
+<p>
+    <a th:href="@{/leaders}">Leadership Meeting</a>
+    (Only for Manager peeps)
+</p>
+
+<!-- Add link to admin-->
+<p>
+    <a th:href="@{/systems}">IT systems Meeting</a>
+    (Only for admin peeps)
+</p>
+<hr>
+<form action="#" th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout">
+</form>
+</body>
+</html>
